@@ -1,0 +1,75 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Register
+
+@if (TempData["AuthError"] != null)
+{
+    <div class="alert alert-danger mb-3" role="alert">
+        @TempData["AuthError"]
+    </div>
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Twitter Kayıt Ol Formu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="keywords" content="Form, flex, Twitter form, sachindusahan, html, css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta property="og:title" content="Twitter Kayıt Ol Formu" />
+</head>
+<body>
+    <div class='container'>
+        <div class='div-1'>
+            <div class='sub-div-1'>
+            </div>
+        </div>
+        <div class='div-2'>
+            <div class='sub-div-2'>
+                <h3>Kayıt Ol</h3>
+            </div>
+        </div>
+        <form action="/KayitOl" method="post" autocomplete="off">
+            <div class='div-3'>
+                <div class='sub-div-3'>
+                    <label>Ad Soyad</label><br>
+                    <input required type='text' name="username" placeholder="" />
+                </div>
+            </div>
+            <div class='div-3'>
+                <div class='sub-div-3'>
+                    <label>Kullanıcı Adı</label><br>
+                    <input required type='text' name="nickname" placeholder="" />
+                </div>
+            </div>
+            <div class='div-3'>
+                <div class='sub-div-3'>
+                    <label>Mail Adresi</label><br>
+                    <input required type='email' name="mail" placeholder="" />
+                </div>
+            </div>
+            <div class='div-4'>
+                <div class='sub-div-4'>
+                    <label>Şifre</label><br>
+                    <input required type='password' name="password" placeholder="" />
+                </div>
+            </div>
+            <div class='div-4'>
+                <div class='sub-div-4'>
+                    <label>Şifre Tekrar</label><br>
+                    <input required type='password' name="pwconfirmend" placeholder="" />
+                </div>
+            </div>
+            <div class='div-5'>
+                <div class='sub-div-5'>
+                    <button type="submit">Kayıt Ol</button>
+                </div>
+            </div>
+        </form>
+        <div class="div-6">
+            <p>Hesabın var mı? <a href="/home/login">Giriş yap.</a></p>
+        </div>
+    </div>
+</body>
+</html>

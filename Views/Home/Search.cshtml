@@ -1,0 +1,23 @@
+﻿@model AramaModel
+
+<h2>Kullanıcı Arama</h2>
+
+<form asp-action="Search" method="post">
+    <input type="text" asp-for="SearchTerm" placeholder="Arama terimi" />
+    <button type="submit">Ara</button>
+</form>
+
+@if (Model.Sonuc != null && Model.Sonuc.Any())
+{
+    <h3>Arama Sonuçları</h3>
+    <ul>
+        @foreach (var user in Model.Sonuc)
+        {
+            <li>@user.Username - <a href="/profil/@user.Nickname"> @user.Nickname </a></li>
+        }
+    </ul>
+}
+else if (Model.SearchTerm != null)
+{
+    <p>Sonuç bulunamadı.</p>
+}

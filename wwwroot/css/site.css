@@ -1,0 +1,366 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+//twitter login css
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+}
+
+/* Div 1 */
+.div-1 {
+    display: flex;
+}
+
+    .div-1 > .sub-div-1 {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+.sub-div-1 > .icon {
+    font-size: 35px;
+    color: #1194FF;
+    margin: 20px 0 30px 0;
+}
+
+/* Div 2 */
+.div-2 {
+    display: flex;
+}
+
+    .div-2 > .sub-div-2 {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+        .div-2 > .sub-div-2 > h3 {
+            font-family: Verdana;
+        }
+
+/* Div 3 */
+.div-3 {
+    display: flex;
+    justify-content: center;
+}
+
+    .div-3 > .sub-div-3 {
+        background: #F8f8f8;
+        margin: 20px 0 0 0;
+        width: 55%;
+        height: 50px;
+        position: relative;
+        border-bottom: 1.5px solid #555;
+    }
+
+.sub-div-3 > label {
+    margin-left: 7px;
+    font-size: 14px;
+    font-family: helvetica;
+    color: #787878;
+}
+
+.sub-div-3 > input {
+    all: unset;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    padding: 9px 0 0 7px;
+}
+
+/* div 4 */
+.div-4 {
+    display: flex;
+    justify-content: center;
+}
+
+    .div-4 > .sub-div-4 {
+        background: #f8f8f8;
+        margin: 20px 0 0 0;
+        width: 55%;
+        height: 50px;
+        position: relative;
+        border-bottom: 1.5px solid #555;
+    }
+
+.sub-div-4 > label {
+    margin-left: 7px;
+    font-size: 14px;
+    font-family: helvetica;
+    color: #787878;
+}
+
+.sub-div-4 > input {
+    all: unset;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    padding: 9px 0 0 7px;
+}
+
+/* Five*/
+.div-5 {
+    display: flex;
+}
+
+    .div-5 > .sub-div-5 {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+        .div-5 > .sub-div-5 > button {
+            all: unset;
+            height: 50px;
+            width: 56%;
+            border-radius: 29px;
+            text-align: center;
+            background: #1194FF;
+            opacity: 0.5;
+            color: #FFF;
+            font-weight: 600;
+            font-family: Verdana;
+        }
+
+/* 
+6
+*/
+.div-6 {
+    display: flex;
+}
+
+    .div-6 > .sub-div-6 {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+    }
+
+        .div-6 > .sub-div-6 > a {
+            text-decoration: none;
+            color: #1194FF;
+            font-size: 14px;
+            margin-top: 20px;
+            font-family: Verdana;
+        }
+
+@media only screen and (max-width: 480px) and (min-width: 320px) {
+    .div-3 > .sub-div-3, .div-4 > .sub-div-4 {
+        width: 85%;
+    }
+
+    .div-5 > .sub-div-5 > button {
+        width: 85.5%;
+    }
+}
+
+@media only screen and (max-width: 800px) and (min-width: 481px) {
+    .div-3 > .sub-div-3, .div-4 > .sub-div-4 {
+        width: 70%;
+    }
+
+    .div-5 > .sub-div-5 > button {
+        width: 71%;
+    }
+}
+
+/* Giriþ Butonu Hover ve Active Durumlarý */
+.div-5 > .sub-div-5 > button {
+    all: unset;
+    height: 50px;
+    width: 56%;
+    border-radius: 29px;
+    text-align: center;
+    background: #1194FF;
+    opacity: 0.5;
+    color: #FFF;
+    font-weight: 600;
+    font-family: Verdana;
+    cursor: pointer; /* Fare ile üzerine gelince gösterilen imleç */
+    transition: background-color 0.3s ease; /* Geçiþ efekti */
+}
+
+    .div-5 > .sub-div-5 > button:hover {
+        background: #0F7BC3; /* Hover durumu için arka plan rengi */
+        opacity: 1; /* Opaklýðý artýrarak daha belirgin yapar */
+    }
+
+    .div-5 > .sub-div-5 > button:active {
+        background: #0D6DA5; /* Týklandýðýnda arka plan rengi */
+        transform: translateY(2px); /* Butonun biraz aþaðý kaymasýný saðlar */
+    }
+
+
+
+/* Kayýt Ol Butonu Hover ve Active Durumlarý */
+.div-8 > .sub-div-8 > button {
+    all: unset;
+    height: 50px;
+    width: 56%;
+    border-radius: 29px;
+    text-align: center;
+    background: #1194FF;
+    opacity: 0.5;
+    color: #FFF;
+    font-weight: 600;
+    font-family: Verdana;
+    cursor: pointer; /* Fare ile üzerine gelince gösterilen imleç */
+    transition: background-color 0.3s ease; /* Geçiþ efekti */
+}
+
+    .div-8 > .sub-div-8 > button:hover {
+        background: #0F7BC3; /* Hover durumu için arka plan rengi */
+        opacity: 1; /* Opaklýðý artýrarak daha belirgin yapar */
+    }
+
+    .div-8 > .sub-div-8 > button:active {
+        background: #0D6DA5; /* Týklandýðýnda arka plan rengi */
+        transform: translateY(2px); /* Butonun biraz aþaðý kaymasýný saðlar */
+    }
+
+/* Form Elemanlarýnýn Geniþliðini Düzenleme */
+.div-3 > .sub-div-3,
+.div-4 > .sub-div-4 {
+    width: 70%; /* Geniþliði %70 yap */
+    margin: 10px auto; /* Üst ve alt margin ayarla */
+}
+
+/* Form Elemanlarýnýn Yüksekliðini Düzenleme */
+.sub-div-3 > input,
+.sub-div-4 > input {
+    height: 40px; /* Yüksekliði 40px yap */
+    padding: 5px 10px; /* Daha az padding ayarlayarak alaný azalt */
+}
+
+/* Butonlarýn Geniþliði ve Yüksekliðini Düzenleme */
+.div-5 > .sub-div-5 > button {
+    width: 70%; /* Buton geniþliðini %70 yap */
+    height: 45px; /* Buton yüksekliðini 45px yap */
+}
+
+/* Mobil Görünüm Ýçin Ayarlamalar */
+@media only screen and (max-width: 800px) {
+    .div-3 > .sub-div-3,
+    .div-4 > .sub-div-4 {
+        width: 85%; /* Küçük ekranlarda geniþliði %85 yap */
+    }
+
+    .div-5 > .sub-div-5 > button {
+        width: 85%; /* Buton geniþliðini %85 yap */
+    }
+}
+.div-6 {
+    display: flex; /* Flexbox kullanarak ortalama */
+    justify-content: center; /* Yatayda ortala */
+    margin-top: 20px; /* Üstte boþluk */
+}
+
+.sub-div-6 {
+    display: flex;
+    justify-content: center; /* Ýçeriði ortala */
+}
+
+.login-link {
+    text-decoration: none; /* Alt çizgiyi kaldýrýr */
+    color: #1194FF; /* Renk */
+    font-size: 14px; /* Font boyutu */
+    font-family: Verdana; /* Font ailesi */
+}
+
+    .login-link:hover {
+        color: #0F7BC3; /* Hover durumunda renk deðiþimi */
+    }
+
+
+/* Tweet Formunun Genel Stil Düzenlemeleri */
+.tweet-form {
+    margin: 0 auto; /* Ortalamak için */
+    padding: 10px; /* Ýç boþluklarý optimize et */
+    width: 70%; /* Geniþlik ayarý */
+}
+
+/* Tweet Alanýnýn Düzenlenmesi */
+.tweet-container {
+    margin: 0; /* Gereksiz boþluklarý kaldýr */
+    padding: 10px; /* Ýç boþluklar */
+    background-color: #f8f8f8; /* Arka plan rengi */
+}
+
+/* Ekranda boþluk býrakýlmasýný önlemek için */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ýçerikleri yukarýya hizala */
+    min-height: 100vh; /* Minimum yükseklik ayarý */
+}
+
+/* Tweet alaný için alt boþluðu azalt */
+.tweet-container:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.heart-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+}
+
+.heart {
+    position: absolute;
+    bottom: 20px;
+    font-size: 24px;
+    animation: floatUp 1s ease-out forwards;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+}
+
+
+
+

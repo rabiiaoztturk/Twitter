@@ -1,0 +1,141 @@
+﻿@using System.Globalization
+@model List<Tweet>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section Styles {
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="~/css/site.css" rel="stylesheet" /> <!-- Yeni CSS dosyasını ekledik -->
+}
+
+@section Scripts {
+    <script defer>
+        function toggleCommentInput() {
+            const commentInput = document.querySelector('#comment-input');
+            commentInput.classList.toggle('hidden');
+        }
+
+        function handleLikeButtonClick(button) {
+            button.innerHTML = '<svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path></svg> Beğendi';
+
+            const heartContainer = document.querySelector('.heart-container');
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heartContainer.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 1000);
+        }
+
+        function handleFollowButtonClick(button) {
+            button.innerHTML = ' Takip Edildi';
+            button.disabled = true;
+        }
+    </script>
+}
+
+<body class="bg-gray-200">
+    <div class="max-w-xl mx-auto mt-10">
+
+        @if (ViewData["nickname"] != null)
+        {
+            <div class="card bg-white p-4 rounded-lg shadow-md">
+                <form action="/AddTweet" method="post" autocomplete="off">
+                    <div class="flex mb-3">
+                        <select class="form-select w-auto" id="visibilitySelect" name="visibility">
+                            <option value="true">Public</option>
+                            <option value="false">Private</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="detail" class="form-control" id="tweetContent" rows="3" placeholder="Neler oluyor?"></textarea>
+                    </div>
+                    <br>
+                    <div class="flex justify-between mb-3">
+                        <button type="submit" class="btn btn-primary">Gönderi</button>
+                    </div>
+                </form>
+            </div>
+        }
+
+        @foreach (var item in Model)
+        {
+            <div class="bg-white p-4 rounded-lg shadow-md mt-6">
+                <div class="flex items-start">
+                    <a href="/profil/@item.Nickname">
+                        <img class="w-12 h-12 rounded-full" src="@item.ImgUrl" alt="Profile Photo">
+                    </a>
+                    <div class="ml-4">
+                        <div class="flex items-center">
+                            <h2 class="font-bold text-lg">
+                                <a href="/profil/@item.Nickname">@item.Username</a>
+                            </h2>
+                            <span class="ml-2 text-gray-500">@item.Nickname</span>
+                        </div>
+                        <p class="mt-2 text-gray-800">@item.Detail</p>
+
+                        <!-- Görseli buraya ekliyoruz -->
+                        <div class="mt-2">
+                            <img src="@item.PostImage" alt="Tweet Image" class="w-full h-auto rounded-lg">
+                            <p class="text-center text-gray-500 mt-2"></p>
+                        </div>
+
+                        <div class="text-gray-500 text-sm mt-2">
+                            @item.CreatedDate.ToString("g", CultureInfo.GetCultureInfo("tr"))
+                        </div>
+
+                        <div class="flex items-center mt-4">
+                            <button class="flex items-center text-blue-500 hover:text-blue-600" onmousedown="handleLikeButtonClick(this)">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"></path>
+                                </svg>
+                                Beğen
+                            </button>
+
+                            <button class="flex items-center text-blue-500 hover:text-blue-600 ml-4" onclick="toggleCommentInput()">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M18 10c0 4.418-3.582 8-8 8a7.963 7.963 0 01-4.906-1.688L2 18l1.688-3.094A7.963 7.963 0 012 10c0-4.418 3.582-8 8-8s8 3.582 8 8z"></path>
+                                </svg>
+                                Yorum Yap
+                            </button>
+
+                            <button class="flex items-center text-blue-500 hover:text-blue-600 ml-4" onclick="handleFollowButtonClick(this)">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm1 11H9v-2h2v2zm0-4H9V5h2v4z"></path>
+                                </svg>
+                                Takip Et
+                            </button>
+
+                            <button class="flex items-center text-blue-500 hover:text-blue-600 ml-4">
+                                <svg class="w-5 h-5 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M17.707 7.293a1 1 0 00-1.414 0L10 13.586 7.707 11.293a1 1 0 00-1.414 1.414l3 3a1 1 0 001.414 0l7-7a1 1 0 000-1.414z"></path>
+                                </svg>
+                                Retweet
+                            </button>
+
+                            <div class="text-blue-500 hover:text-blue-600 ml-4">
+                                <a href="/tweet/@item.Id">Gönderiye Git</a>
+                            </div>
+
+                            <div class="ml-4">
+                                Yorum Sayısı: @item.YorumSayisi
+                            </div>
+                        </div>
+
+                        <div id="comment-input" class="hidden mt-4">
+                            <textarea class="w-full p-2 border rounded-lg" placeholder="Yorum Yap..."></textarea>
+                            <button class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600">Paylaş</button>
+                        </div>
+
+                        <div class="heart-container"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+
